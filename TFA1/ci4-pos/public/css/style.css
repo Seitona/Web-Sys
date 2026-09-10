@@ -1,0 +1,12 @@
+:root { --teal: #0f766e; }
+
+* { box-sizing: border-box; }
+body { margin: 0; background: #f7f9f9; color: #1f2937; font: 14px Arial, sans-serif; }
+.container { width: min(760px, 92%); margin: 40px auto; }
+nav { margin-bottom: 30px; padding: 14px; background: white; border: 1px solid #d1d5db; border-radius: 4px; }
+nav a { margin-right: 18px; color: var(--teal); text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+h1 { color: var(--teal); font-size: 25px; }
+table { width: 100%; border-collapse: collapse; background: white; }
+th, td { padding: 10px; border: 1px solid #9ca3af; text-align: left; }
+th { background: #d9f3f0; color: #134e4a; }
