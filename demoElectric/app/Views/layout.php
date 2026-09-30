@@ -184,6 +184,11 @@ base_url('about') ?>">About</a>
                         <a class="nav-link <?= (isset($page) && $page == 'services') ? 'active' : '' ?>" href="<?= 
 base_url('services') ?>">Services</a> 
                     </li> 
+                    <?php if (session()->get('is_logged_in')): ?>
+                        <li class="nav-item">
+                            <a class="nav-link <?= (isset($page) && $page == 'accounts') ? 'active' : '' ?>" href="<?= base_url('accounts') ?>">Accounts</a>
+                        </li>
+                    <?php endif; ?>
                     <li class="nav-item"> 
                         <a class="nav-link <?= (isset($page) && $page == 'contact') ? 'active' : '' ?>" href="<?= 
 base_url('contact') ?>">Contact</a> 
@@ -192,6 +197,15 @@ base_url('contact') ?>">Contact</a>
                         <a class="nav-link <?= (isset($page) && $page == 'register') ? 'active' : '' ?>" href="<?= 
 base_url('register') ?>">Register</a> 
                     </li> 
+                    <?php if (session()->get('is_logged_in')): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= base_url('logout') ?>">Logout</a>
+                        </li>
+                    <?php else: ?>
+                        <li class="nav-item">
+                            <a class="nav-link <?= (isset($page) && $page == 'login') ? 'active' : '' ?>" href="<?= base_url('login') ?>">Login</a>
+                        </li>
+                    <?php endif; ?>
                 </ul> 
             </div> 
         </div> 
@@ -223,6 +237,9 @@ Your trusted partner for all electrical needs.</p>
                         <li><a href="<?= base_url() ?>">Home</a></li> 
                         <li><a href="<?= base_url('about') ?>">About</a></li> 
                         <li><a href="<?= base_url('services') ?>">Services</a></li> 
+                        <?php if (session()->get('is_logged_in')): ?>
+                            <li><a href="<?= base_url('accounts') ?>">Accounts</a></li>
+                        <?php endif; ?>
                         <li><a href="<?= base_url('contact') ?>">Contact</a></li> 
                     </ul> 
                 </div> 

@@ -1,0 +1,153 @@
+ERROR - 2026-09-30 01:19:02 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'electric_compan...', 3306, '', 0)
+#1 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\Web-Sys\demoElectric\system\Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\Web-Sys\demoElectric\system\BaseModel.php(1284): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\Web-Sys\demoElectric\app\Models\CustomerAccountModel.php(27): CodeIgniter\BaseModel->paginate(10)
+#7 C:\xampp\htdocs\Web-Sys\demoElectric\app\Controllers\Accounts.php(30): App\Models\CustomerAccountModel->getAccountsPaginated(10)
+#8 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(933): App\Controllers\Accounts->index()
+#9 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Accounts))
+#10 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\Web-Sys\demoElectric\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\Web-Sys\demoElectric\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\Web-Sys\demoElectric\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#3 C:\xampp\htdocs\Web-Sys\demoElectric\system\Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#4 C:\xampp\htdocs\Web-Sys\demoElectric\system\BaseModel.php(1284): CodeIgniter\Model->countAllResults(false)
+#5 C:\xampp\htdocs\Web-Sys\demoElectric\app\Models\CustomerAccountModel.php(27): CodeIgniter\BaseModel->paginate(10)
+#6 C:\xampp\htdocs\Web-Sys\demoElectric\app\Controllers\Accounts.php(30): App\Models\CustomerAccountModel->getAccountsPaginated(10)
+#7 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(933): App\Controllers\Accounts->index()
+#8 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Accounts))
+#9 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\Web-Sys\demoElectric\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\Web-Sys\demoElectric\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\Web-Sys\demoElectric\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-09-30 01:19:02 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: accounts]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `customer_accounts`', [], false)
+ 3 SYSTEMPATH\Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 4 SYSTEMPATH\BaseModel.php(1284): CodeIgniter\Model->countAllResults(false)
+ 5 APPPATH\Models\CustomerAccountModel.php(27): CodeIgniter\BaseModel->paginate(10)
+ 6 APPPATH\Controllers\Accounts.php(30): App\Models\CustomerAccountModel->getAccountsPaginated(10)
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Accounts->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Accounts))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-09-30 01:20:08 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'electric_compan...', 3306, '', 0)
+#1 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\Web-Sys\demoElectric\system\Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\Web-Sys\demoElectric\system\BaseModel.php(1284): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\Web-Sys\demoElectric\app\Models\CustomerAccountModel.php(27): CodeIgniter\BaseModel->paginate(10)
+#7 C:\xampp\htdocs\Web-Sys\demoElectric\app\Controllers\Accounts.php(32): App\Models\CustomerAccountModel->getAccountsPaginated(10)
+#8 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(933): App\Controllers\Accounts->index()
+#9 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Accounts))
+#10 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\Web-Sys\demoElectric\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\Web-Sys\demoElectric\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\Web-Sys\demoElectric\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#3 C:\xampp\htdocs\Web-Sys\demoElectric\system\Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#4 C:\xampp\htdocs\Web-Sys\demoElectric\system\BaseModel.php(1284): CodeIgniter\Model->countAllResults(false)
+#5 C:\xampp\htdocs\Web-Sys\demoElectric\app\Models\CustomerAccountModel.php(27): CodeIgniter\BaseModel->paginate(10)
+#6 C:\xampp\htdocs\Web-Sys\demoElectric\app\Controllers\Accounts.php(32): App\Models\CustomerAccountModel->getAccountsPaginated(10)
+#7 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(933): App\Controllers\Accounts->index()
+#8 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Accounts))
+#9 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\Web-Sys\demoElectric\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\Web-Sys\demoElectric\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\Web-Sys\demoElectric\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+ERROR - 2026-09-30 01:20:30 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'electric_compan...', 3306, '', 0)
+#1 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\Web-Sys\demoElectric\system\Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\Web-Sys\demoElectric\system\BaseModel.php(1284): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\Web-Sys\demoElectric\app\Models\CustomerAccountModel.php(27): CodeIgniter\BaseModel->paginate(10)
+#7 C:\xampp\htdocs\Web-Sys\demoElectric\app\Controllers\Accounts.php(32): App\Models\CustomerAccountModel->getAccountsPaginated(10)
+#8 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(933): App\Controllers\Accounts->index()
+#9 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Accounts))
+#10 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\Web-Sys\demoElectric\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\Web-Sys\demoElectric\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\Web-Sys\demoElectric\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#3 C:\xampp\htdocs\Web-Sys\demoElectric\system\Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#4 C:\xampp\htdocs\Web-Sys\demoElectric\system\BaseModel.php(1284): CodeIgniter\Model->countAllResults(false)
+#5 C:\xampp\htdocs\Web-Sys\demoElectric\app\Models\CustomerAccountModel.php(27): CodeIgniter\BaseModel->paginate(10)
+#6 C:\xampp\htdocs\Web-Sys\demoElectric\app\Controllers\Accounts.php(32): App\Models\CustomerAccountModel->getAccountsPaginated(10)
+#7 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(933): App\Controllers\Accounts->index()
+#8 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Accounts))
+#9 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\Web-Sys\demoElectric\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\Web-Sys\demoElectric\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\Web-Sys\demoElectric\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+ERROR - 2026-09-30 01:20:41 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'electric_compan...', 3306, '', 0)
+#1 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\Web-Sys\demoElectric\system\Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\Web-Sys\demoElectric\system\BaseModel.php(1284): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\Web-Sys\demoElectric\app\Models\CustomerAccountModel.php(27): CodeIgniter\BaseModel->paginate(10)
+#7 C:\xampp\htdocs\Web-Sys\demoElectric\app\Controllers\Accounts.php(32): App\Models\CustomerAccountModel->getAccountsPaginated(10)
+#8 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(933): App\Controllers\Accounts->index()
+#9 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Accounts))
+#10 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\Web-Sys\demoElectric\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\Web-Sys\demoElectric\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\Web-Sys\demoElectric\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\Web-Sys\demoElectric\system\Database\BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#3 C:\xampp\htdocs\Web-Sys\demoElectric\system\Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#4 C:\xampp\htdocs\Web-Sys\demoElectric\system\BaseModel.php(1284): CodeIgniter\Model->countAllResults(false)
+#5 C:\xampp\htdocs\Web-Sys\demoElectric\app\Models\CustomerAccountModel.php(27): CodeIgniter\BaseModel->paginate(10)
+#6 C:\xampp\htdocs\Web-Sys\demoElectric\app\Controllers\Accounts.php(32): App\Models\CustomerAccountModel->getAccountsPaginated(10)
+#7 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(933): App\Controllers\Accounts->index()
+#8 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Accounts))
+#9 C:\xampp\htdocs\Web-Sys\demoElectric\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\Web-Sys\demoElectric\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\Web-Sys\demoElectric\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\Web-Sys\demoElectric\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
