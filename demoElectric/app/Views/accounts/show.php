@@ -8,15 +8,27 @@
             <a href="<?= base_url('accounts') ?>" class="btn btn-outline-primary">Back to Accounts</a>
         </div>
 
+        <?php if (session()->getFlashdata('success')): ?>
+            <div class="alert alert-success"><?= esc(session()->getFlashdata('success')) ?></div>
+        <?php endif; ?>
+
         <div class="card p-4">
             <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
                 <div>
+                    <p class="text-uppercase text-secondary-custom fw-semibold mb-1">Puihaha Electric Company</p>
                     <h1 class="h3 text-primary-custom mb-1"><?= esc($account['customer_name']) ?></h1>
                     <p class="text-muted mb-0"><?= esc($account['account_number']) ?></p>
                 </div>
-                <span class="badge fs-6 bg-<?= $account['status'] === 'active' ? 'success' : ($account['status'] === 'inactive' ? 'danger' : 'warning text-dark') ?>">
-                    <?= ucfirst(esc($account['status'])) ?>
-                </span>
+                <div class="d-flex flex-wrap gap-2 align-items-center">
+                    <span class="badge fs-6 bg-<?= $account['status'] === 'active' ? 'success' : ($account['status'] === 'inactive' ? 'danger' : 'warning text-dark') ?>">
+                        <?= ucfirst(esc($account['status'])) ?>
+                    </span>
+                    <a href="<?= base_url('accounts/' . $account['id'] . '/edit') ?>" class="btn btn-sm btn-outline-secondary">Edit</a>
+                    <form method="post" action="<?= base_url('accounts/' . $account['id'] . '/delete') ?>" onsubmit="return confirm('Delete this customer account? This action cannot be undone.');">
+                        <?= csrf_field() ?>
+                        <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                    </form>
+                </div>
             </div>
 
             <div class="row g-4">

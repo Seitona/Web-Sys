@@ -4,10 +4,20 @@
 
 <section class="section-padding bg-light-custom">
     <div class="container">
-        <div class="text-center mb-5">
-            <h1 class="display-5 fw-bold text-primary-custom">Customer Accounts</h1>
-            <p class="lead text-muted">Simple customer account list with search, filters, and pagination.</p>
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-5">
+            <div>
+                <p class="text-uppercase text-secondary-custom fw-semibold mb-1">Puihaha Electric Company</p>
+                <h1 class="display-5 fw-bold text-primary-custom mb-1">Customer Accounts Dashboard</h1>
+                <p class="lead text-muted mb-0">Manage customer service accounts, meters, connection types, and status.</p>
+            </div>
+            <a href="<?= base_url('accounts/create') ?>" class="btn btn-primary">
+                <i class="fas fa-plus me-2"></i>Add Account
+            </a>
         </div>
+
+        <?php if (session()->getFlashdata('success')): ?>
+            <div class="alert alert-success"><?= esc(session()->getFlashdata('success')) ?></div>
+        <?php endif; ?>
 
         <?php if (session()->getFlashdata('error')): ?>
             <div class="alert alert-danger"><?= esc(session()->getFlashdata('error')) ?></div>
@@ -92,7 +102,7 @@
                             <th>Phone</th>
                             <th>Type</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -110,7 +120,14 @@
                                     <td><span class="badge bg-info"><?= ucfirst(esc($account['connection_type'])) ?></span></td>
                                     <td><span class="badge bg-<?= $account['status'] === 'active' ? 'success' : ($account['status'] === 'inactive' ? 'danger' : 'warning text-dark') ?>"><?= ucfirst(esc($account['status'])) ?></span></td>
                                     <td>
-                                        <a href="<?= base_url('accounts/' . $account['id']) ?>" class="btn btn-sm btn-outline-primary">View</a>
+                                        <div class="d-flex flex-wrap gap-2">
+                                            <a href="<?= base_url('accounts/' . $account['id']) ?>" class="btn btn-sm btn-outline-primary">View</a>
+                                            <a href="<?= base_url('accounts/' . $account['id'] . '/edit') ?>" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                            <form method="post" action="<?= base_url('accounts/' . $account['id'] . '/delete') ?>" onsubmit="return confirm('Delete this customer account? This action cannot be undone.');">
+                                                <?= csrf_field() ?>
+                                                <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

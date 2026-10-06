@@ -8,9 +8,13 @@
             <div class="col-lg-5">
                 <div class="card p-4">
                     <div class="text-center mb-4">
-                        <h1 class="h3 text-primary-custom">Login</h1>
-                        <p class="text-muted mb-0">Login first to view customer accounts.</p>
+                        <h1 class="h3 text-primary-custom">Puihaha Electric Company Login</h1>
+                        <p class="text-muted mb-0">Login to open the customer accounts CRUD dashboard.</p>
                     </div>
+
+                    <?php if (session()->getFlashdata('success')): ?>
+                        <div class="alert alert-success"><?= esc(session()->getFlashdata('success')) ?></div>
+                    <?php endif; ?>
 
                     <?php if (! empty($error)): ?>
                         <div class="alert alert-danger"><?= esc($error) ?></div>
