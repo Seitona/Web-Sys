@@ -136,10 +136,10 @@
                 </table>
             </div>
 
-            <?php if ($pager): ?>
-                <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mt-4">
-                    <span class="text-muted">Page <?= esc($current_page) ?> of <?= esc($pager->getPageCount()) ?></span>
-                    <?= $pager->only(['search', 'status', 'type'])->links() ?>
+            <?php if ($pager && $pager->getPageCount() > 1): ?>
+                <div class="accounts-pagination d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mt-4">
+                    <span class="text-muted small">Page <?= esc($current_page) ?> of <?= esc($pager->getPageCount()) ?></span>
+                    <?= $pager->only(['search', 'status', 'type'])->links('default', 'accounts') ?>
                 </div>
             <?php endif; ?>
         </div>

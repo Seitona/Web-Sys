@@ -3,6 +3,7 @@
 namespace App\Controllers; 
  
 use App\Models\User; 
+use CodeIgniter\Database\Exceptions\DatabaseException;
  
 class Register extends BaseController 
 { 
@@ -44,10 +45,15 @@ class Register extends BaseController
             'terms' => 'required' 
         ]); 
          
-        if (!$validation->withRequest($this->request)->run()) { 
-            session()->setFlashdata('validation', $validation->getErrors()); 
-            return redirect()->back()->withInput(); 
-        } 
+        try {
+            if (!$validation->withRequest($this->request)->run()) {
+                session()->setFlashdata('validation', $validation->getErrors());
+                return redirect()->back()->withInput();
+            }
+        } catch (DatabaseException $e) {
+            session()->setFlashdata('error', 'Registration is temporarily unavailable. Please check the hosting database username and password.');
+            return redirect()->back()->withInput();
+        }
          
         $userData = [ 
             'first_name' => $this->request->getPost('first_name'), 

@@ -297,7 +297,6 @@ strengthLevels[0]}</small>
 }); 
  
 // Service Worker registration (for future PWA features) 
-Electric Company CMV  
 if ('serviceWorker' in navigator) { 
 window.addEventListener('load', function() { 
 // navigator.serviceWorker.register('/sw.js'); 

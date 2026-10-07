@@ -31,7 +31,7 @@ class Login extends BaseController
         try {
             $user = $this->userModel->findByEmail($email);
         } catch (DatabaseException $e) {
-            session()->setFlashdata('error', 'Cannot connect to the database. Please start MySQL first.');
+            session()->setFlashdata('error', 'Cannot connect to the database. Please check the hosting database username and password.');
             return redirect()->back()->withInput();
         }
 

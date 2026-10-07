@@ -298,3 +298,58 @@ width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"
         color: #9ca3af !important; 
     } 
 }
+
+/* Accounts pagination */
+.accounts-pagination {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1rem;
+}
+
+.accounts-pager .pagination {
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    justify-content: flex-start;
+}
+
+.accounts-pager .page-link {
+    min-width: 2.4rem;
+    border: 1px solid #dbe4f0;
+    border-radius: 0.5rem;
+    color: #1e40af;
+    font-weight: 600;
+    line-height: 1.2;
+    padding: 0.55rem 0.75rem;
+    text-align: center;
+}
+
+.accounts-pager .page-item:first-child .page-link,
+.accounts-pager .page-item:last-child .page-link {
+    min-width: 4.8rem;
+}
+
+.accounts-pager .page-item.active .page-link {
+    background-color: #1e40af;
+    border-color: #1e40af;
+    color: #fff;
+}
+
+.accounts-pager .page-item.disabled .page-link {
+    background-color: #f8fafc;
+    color: #94a3b8;
+    pointer-events: none;
+}
+
+@media (max-width: 575.98px) {
+    .accounts-pagination {
+        align-items: stretch;
+    }
+
+    .accounts-pager .pagination {
+        justify-content: space-between;
+    }
+
+    .accounts-pager .page-link {
+        min-height: 2.75rem;
+        padding: 0.65rem 0.8rem;
+    }
+}

@@ -95,7 +95,7 @@ class Accounts extends BaseController
             $activeAccounts = 0;
             $inactiveAccounts = 0;
             $suspendedAccounts = 0;
-            $databaseError = 'Cannot connect to the database. Please start MySQL in XAMPP and import electric_company (4).sql.';
+            $databaseError = 'Cannot connect to the database. Please check the hosting database connection and imported tables.';
         }
 
         return view('accounts/index', [

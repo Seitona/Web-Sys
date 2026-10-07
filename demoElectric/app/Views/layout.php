@@ -166,8 +166,7 @@ rel="stylesheet">
             <a class="navbar-brand" href="<?= base_url() ?>"> 
                 <i class="fas fa-bolt text-warning me-2"></i>Puihaha Electric 
             </a> 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs
-target="#navbarNav"> 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> 
                 <span class="navbar-toggler-icon"></span> 
             </button> 
             <div class="collapse navbar-collapse" id="navbarNav"> 
@@ -279,6 +278,16 @@ Your trusted partner for all electrical needs.</p>
 src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> 
     <script src="<?= base_url('assets/js/app.js') ?>"></script> 
     <script> 
+        document.querySelector('.navbar-toggler')?.addEventListener('click', function () {
+            const menu = document.getElementById('navbarNav');
+            if (! menu || typeof bootstrap !== 'undefined') {
+                return;
+            }
+
+            menu.classList.toggle('show');
+            this.setAttribute('aria-expanded', menu.classList.contains('show') ? 'true' : 'false');
+        });
+
         // Smooth scrolling for anchor links 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => { 
             anchor.addEventListener('click', function (e) { 
